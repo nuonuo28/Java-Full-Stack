@@ -11,13 +11,31 @@
 
 ## Spring Framework 5
 
-> Spring is a *lightweight* framework. It can be thought of as a *framework of frameworks* because it provides support to various frameworks such as [Struts](https://www.javatpoint.com/struts-2-tutorial), [Hibernate](https://www.javatpoint.com/hibernate-tutorial), Tapestry, [EJB](https://www.javatpoint.com/ejb-tutorial), [JSF](https://www.javatpoint.com/jsf-tutorial)
->
-> 
+Spring framework is an open source Java platform for enterprise Java. It is capable to create high performing, easily testable, and reusable code. It can be thought of as a *framework of frameworks* because it provides support to various frameworks such as [Struts](https://www.javatpoint.com/struts-2-tutorial), [Hibernate](https://www.javatpoint.com/hibernate-tutorial), Tapestry, [EJB](https://www.javatpoint.com/ejb-tutorial), [JSF](https://www.javatpoint.com/jsf-tutorial)
 
-### Spring Core
+Spring framework targets to make J2EE development easier to use and promotes good programming practices by enabling a POJO-based programming model.
 
-#### Architecture
+Following is the list of few of the great benefits of using Spring Framework −
+
+- **Integration with existing frameworks** - Spring does not reinvent the wheel, instead it truly makes use of some of the existing technologies like several ORM frameworks, logging frameworks, JEE, Quartz and JDK timers, and other view technologies. Moreover, it  provides **templates** for JDBC, Hibernate, JPA etc. technologies. So there is no need to write too much code. It hides the basic steps of these technologies. Let's take the example of JdbcTemplate, you don't need to write the code for exception handling, creating connection, creating statement, committing transaction, closing connection etc. You need to write the code of executing query only. Thus, it save a lot of JDBC code. 
+
+- **Powerful abstraction** - It provides powerful abstraction to JavaEE specifications such as [JMS](https://www.javatpoint.com/jms-tutorial), [JDBC](https://www.javatpoint.com/java-jdbc), JPA and JTA.
+
+- **Loose Coupling** and  **Easy to test** - The Spring applications are loosely coupled because of dependency injection. It also makes easier to test the application. The EJB or Struts application require server to run the application but Spring framework doesn't require server.
+
+- **Lightweight** - Lightweight IoC containers tend to be lightweight, especially when compared to EJB containers, for example. This is beneficial for developing and deploying applications on computers with limited memory and CPU resources.
+
+- **POJO Based** - Spring enables developers to develop enterprise-class applications using POJOs. The benefit of using only POJOs is that you do not need an EJB container product such as an application server but you have the option of using only a robust servlet container such as Tomcat or some commercial product.
+
+- **Modular** - Spring is organized in a modular fashion. Even though the number of packages and classes are substantial, you have to worry only about the ones you need and ignore the rest.
+
+- **Web MVC** - Spring's web framework is a well-designed web MVC framework, which provides a great alternative to web frameworks such as Struts or other over-engineered or less popular web frameworks.
+
+- **Central Exception Handling** - Spring provides a convenient API to translate technology-specific exceptions (thrown by JDBC, Hibernate, or JDO, for example) into consistent, unchecked exceptions.
+
+- **Transaction management** - Spring provides a consistent transaction management interface that can scale down to a local transaction (using a single database, for example) and scale up to global transactions (using JTA, for example).
+
+### Architecture
 ![image-20200917022705577](Spring.assets/image-20200917022705577.png)
 
 ![image-20200917104746920](Spring.assets/image-20200917104746920.png)
@@ -55,25 +73,29 @@ There are few other important modules like AOP, Aspects, Instrumentation, Web an
 * The Messaging module provides support for STOMP as the WebSocket sub-protocol to use in applications. It also supports an annotation programming model for routing and processing STOMP messages from WebSocket clients.
 * The Test module supports the testing of Spring components with JUnit or TestNG frameworks.
 
-#### IoC Container & Lifecycle
-The Spring container is at the core of the Spring Framework. The container will create the objects, wire them together, configure them, and manage their complete life cycle from creation till destruction. The Spring container uses DI to manage the components that make up an application. These objects are called Spring Beans, which we will discuss in the next chapter.
+### Spring Core
 
-The container gets its instructions on what objects to instantiate, configure, and assemble by reading the configuration metadata provided. The configuration metadata can be represented either by XML, Java annotations, or Java code. The following diagram represents a high-level view of how Spring works. The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured and executable system or application.
+#### IoC (Inversion of Control) Container & Lifecycle
+The Spring container is at the core of the Spring Framework. 
+
+The **Spring IoC container makes use of Java POJO classes** and **configuration metadata** to produce a fully configured and executable application.
+
+The container will create the objects, wire them together, configure them, and manage their complete life cycle from creation till destruction. Spring do this by reading the configuration metadata provided. The configuration metadata can be represented either by XML (XML based configuration file), Java annotations (Annotation-based configuration), or Java code (Java-based configuration). 
+
+The Spring container uses DI to manage the components that make up an application. These objects are called Spring Beans.
+
+IOC makes the code loosely coupled. In such case, there is no need to modify the code if our logic is moved to new environment. And it's easy for reuse and testing.
+
+Summary:
 
 * Responsible for instantiating, configuring & assembling the beans
 * The container is instructed through configuration metadata
-* The configuration metadata is represented as XML or Java Annotations
+* The configuration metadata is represented as XML, Java Annotations or java code.
 * It allows to express objects that compose your application & rich interdependencies between those objects
 * Dependency Injection (DI)
 
-Spring IoC container is totally decoupled from the format in which this configuration metadata is actually written. Following are the three important methods to provide configuration metadata to the Spring Container −
-
-XML based configuration file.
-Annotation-based configuration
-Java-based configuration
-
 ##### Dependency Injection (DI)
-When writing a complex Java application, application classes should be as independent as possible of other Java classes to increase the possibility to reuse these classes and to test them independently of other classes while unit testing. Dependency Injection (or sometime called wiring) helps in gluing these classes together and at the same time keeping them independent.
+The Dependency Injection is a design pattern that removes the dependency of the programs. When writing a complex Java application, application classes should be as independent as possible of other Java classes to increase the possibility to reuse these classes and to test them independently of other classes while unit testing. Dependency Injection (or sometime called wiring) helps in gluing these classes together and at the same time keeping them independent.
 
 Two methods to achieve DI:
 1. Constructor-based dependency injection
@@ -100,16 +122,31 @@ public class TextEditor {
 ```
 Here, the TextEditor should not worry about SpellChecker implementation. The SpellChecker will be implemented independently and will be provided to the TextEditor at the time of TextEditor instantiation. This entire procedure is controlled by the Spring Framework.
 
-Here, we have removed total control from the TextEditor and kept it somewhere else (i.e. XML configuration file) and the dependency (i.e. class SpellChecker) is being injected into the class TextEditor through a Class Constructor. Thus the flow of control has been "inverted" by Dependency Injection (DI) because you have effectively delegated dependances to some external system.
+Here, we have removed total control from the TextEditor and kept it somewhere else (i.e. XML configuration file) and the dependency (i.e. class SpellChecker) is being injected into the class TextEditor through a Class Constructor. Thus the flow of control has been "inverted" by Dependency Injection (DI) because you have effectively delegated dependences to some external system.
+
+We use the `<bean>` and the `<constructor-arg>` in the .xml file to invoke constructor injection.
+
+```xml
+<bean id="e" class="com.javatpoint.Employee">  
+<constructor-arg value="10" type="int"></constructor-arg>  
+</bean>  
+```
 
 2. Setter-based dependency injection
-Setter-based DI is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
+    Setter-based DI is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean. For example, in the .xml configuration file, the `<property>` element invokes the setter method. The `<value>` sub element of property will assign the specified value.
 
 You can mix both, Constructor-based and Setter-based DI but it is a good rule of thumb to use constructor arguments for mandatory dependencies and setters for optional dependencies.
 
 The code is cleaner with the DI principle and decoupling is more effective when objects are provided with their dependencies. The object does not look up its dependencies and does not know the location or class of the dependencies, rather everything is taken care by the Spring Framework.
 
+There are many key **differences** between constructor injection and setter injection.
+
+1. **Partial dependency**: can be injected using setter injection but it is not possible by constructor. Suppose there are 3 properties in a class, having 3 arg constructor and setters methods. In such case, if you want to pass information for only one property, it is possible by setter method only.
+2. **Overriding**: Setter injection overrides the constructor injection. If we use both constructor and setter injection, IOC container will use the setter injection.
+3. **Changes**: We can easily change the value by setter injection. It doesn't create a new bean instance always like constructor. So setter injection is flexible than constructor injection.
+
 **DI is one of the implementation mechanism for IoC, where objects define their dependent objects with which they work. This is done by an assembler rather than by the objects themselves**
+
 * Methods of DI 
   * Setter methods
   * Constructor Arguments
@@ -117,18 +154,69 @@ The code is cleaner with the DI principle and decoupling is more effective when 
   * The object does not lookup its dependencies
   * The object does not know the location of the dependencies **(Location Transparency)**
 
-#### Spring XML Configuration
+###### Autowiring
+
+Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor injection. Autowiring can't be used to inject primitive and string values. It works with reference only.
+
+**Autowiring Mode**
+
+- **no**: It is the default autowiring mode. It means no autowiring by default.
+
+- **byName**: The byName mode injects the object dependency according to name of the bean. In such case, property name and bean name must be same. It internally calls setter method.
+```java
+<bean id="b1" class="org.sssit.B"></bean>  
+<bean id="b2" class="org.sssit.B"></bean>  
+<bean id="a" class="org.sssit.A" autowire="byName"></bean>  
+```
+- **byType**: The byType mode injects the object dependency according to type. So property name and bean name can be different. It internally calls setter method.
+```java
+<bean id="b1" class="org.sssit.B"></bean>  
+<bean id="a" class="org.sssit.A" autowire="byType"></bean>  
+```
+- **constructor**: The constructor mode injects the dependency by calling the constructor of the class. It calls the constructor having large number of parameters.  If you have 3 constructors in a class, zero-arg, one-arg and two-arg then injection will be performed by calling the two-arg constructor.
+
+- **autodetect**: It is deprecated since Spring 3.
+
+###### Factory Method
+
+A method that returns instance of a class is called **factory method**. Spring framework provides facility to inject bean using factory method. To do so, we can use two attributes of bean element.
+
+1. **factory-method:** represents the factory method that will be invoked to inject the bean.
+2. **factory-bean:** represents the reference of the bean by which factory method will be invoked. It is used if factory method is non-static.
+
+**Factory Method Types**
+There can be three types of factory method:
+
+1. A **static factory method** that returns instance of **its own** class. It is used in singleton design pattern.
+```xml
+<bean id="a" **class**="com.javatpoint.A" factory-method="getA"></bean> 
+```
+2. A **static factory method** that returns instance of **another** class. It is used instance is not known and decided at runtime.
+```xml
+<bean id="b" **class**="com.javatpoint.A" factory-method="getB"></bean> 
+```
+3) A **non-static factory** method that returns instance of **another** class. It is used instance is not known and decided at runtime.
+
+```xml
+<bean id="a" **class**="com.javatpoint.A"></bean> 
+<bean id="b" **class**="com.javatpoint.A" factory-method="getB" factory-bean="a"></bean> 
+```
+#### Configuration
+
+##### Spring XML Configuration
+
 applicationContext.xml
 * Name doesn’t matter
 * Spring context sort of a HashMap
 * Can simply be a registry
 * XML Configuration begins with this file Namespaces aid in configuration/validation
 
-#### Java Configuration
+##### Java Configuration
 Java-based configuration option enables you to write most of your Spring configuration without XML.
 
 **@Configuration & @Bean**
 Annotating a class with the @Configuration indicates that the class can be used by the Spring IoC container as a source of bean definitions. The @Bean annotation tells Spring that a method annotated with @Bean will return an object that should be registered as a bean in the Spring application context. The simplest possible @Configuration class would be as follows −
+
 ```java
 package com.tutorialspoint;
 import org.springframework.context.annotation.*;
@@ -143,7 +231,7 @@ public class HelloWorldConfig {
 ```
 **Injecting Bean Dependencies**
 When @Beans have dependencies on one another, expressing that the dependency is as simple as having one bean method calling another as follows −
-```java
+​```java
 package com.tutorialspoint;
 import org.springframework.context.annotation.*;
 
@@ -163,7 +251,7 @@ Here, the foo bean receives a reference to bar via the constructor injection.
 
 **@Import**
 The @Import annotation allows for loading @Bean definitions from another configuration class. Consider a ConfigA class as follows −
-```java
+​```java
 @Configuration
 public class ConfigA {
    @Bean
@@ -196,7 +284,7 @@ public class AppConfig {
    }
 }
 ```
-#### Annotation Based Configuration
+##### Annotation Based Configuration
 **@Required**
 The @Required annotation applies to bean property setter methods.
 **@Autowired**
@@ -380,17 +468,72 @@ You can use @Autowired annotation on setter methods to get rid of the \<property
 **@Autowired on Properties/Member Variable**
 You can use @Autowired annotation on properties to get rid of the setter methods. When you will pass values of autowired properties using \<property\> Spring will automatically assign those properties with the passed values or references.
 
+### Spring AOP
 
+**Aspect Oriented Programming** (AOP) compliments OOPs in the sense that it also provides modularity. The key unit of modularity in OOP is the class, whereas in AOP the unit of modularity is the aspect. Dependency Injection helps you decouple your application objects from each other and AOP helps you decouple cross-cutting concerns from the objects that they affect.
 
-#### Properties
+The core construct of AOP is the **aspect** that encapsulates behaviors affecting multiple classes into reusable modules. Aspect is a module which has a set of APIs providing cross-cutting concerns. For example, a logging module would be called AOP aspect for logging. There are various common examples of aspects like auditing, declarative transactions, security, caching, etc. An application can have any number of aspects depending on the requirement. In spring AOP, aspects are implemented using regular classes annotated with @Aspect annotation (@AspectJ style).
 
-#### Spring EL
+AOP breaks the program logic into distinct parts (called concerns). It is used to increase modularity by **cross-cutting concerns**. A **cross-cutting concern** is a concern that can affect the whole application and should be centralized in one location in code as possible.
 
-#### Spring AOP & AspectJ
+**Concern vs. Cross-cutting Concern**
 
-### Spring ORM
-#### Introduction
+The concern is behavior that we want to have in a particular module of an application. A concern may be defined as a functionality we want to implement.
+
+The cross-cutting concern is a concern which is applicable throughout the application and it affects the entire application. For example, logging, security and data transfer is applicable for every module of an application hence they are cross-cutting concerns.
+
+#### Terminologies
+**Aspect**
+This is a module which has a set of APIs providing cross-cutting requirements. For example, a logging module would be called AOP aspect for logging. An application can have any number of aspects depending on the requirement.
+
+**Join point**
+This represents a point in your application where you can plug-in the AOP aspect. You can also say, it is the actual place in the application where an action will be taken using Spring AOP framework.
+
+**Advice**
+This is the actual action to be taken either before or after the method execution. This is an actual piece of code that is invoked during the program execution by Spring AOP framework. There are multiple types of advice.
+
+1. before: Run advice before the a method execution.
+2. after: Run advice after the method execution, regardless of its outcome.
+3. after-returning: Run advice after the a method execution only if method completes successfully.
+4. after-throwing: Run advice after the a method execution only if method exits by throwing an exception.
+5. around: Run advice before and after the advised method is invoked.
+
+**Pointcut**
+This is a set of one or more join points where an advice should be executed. You can specify pointcuts using expressions or patterns as we will see in our AOP examples.
+
+**Introduction**
+An introduction allows you to add new methods or attributes to the existing classes.
+
+**Target** **object**
+The object being advised by one or more aspects. This object will always be a proxied object, also referred to as the advised object.
+
+**Weaving**
+Weaving is the process of linking aspects with other application types or objects to create an advised object. This can be done at compile time, load time, or at runtime.
+
+#### Implementation
+1. **XML Schema based**: Aspects are implemented using the regular classes along with XML based configuration.
+2. **@AspectJ based**: @AspectJ refers to a style of declaring aspects as regular Java classes annotated with Java 5 annotations.
+
+### Spring ORM (Object-Relational Mapping)
+Spring provides API to easily integrate Spring with ORM frameworks such as Hibernate, JPA(Java Persistence API), JDO(Java Data Objects), Oracle Toplink and iBATIS.
+
+There are a lot of **advantages** of Spring framework in respect to ORM frameworks. There are as follows:
+
+- **Less coding is required**: By the help of Spring framework, you don't need to write extra codes before and after the actual database logic such as getting the connection, starting transaction, commiting transaction, closing connection etc.
+- **Easy to test**: Spring's IoC approach makes it easy to test the application.
+- **Better exception handling**: Spring framework provides its own API for exception handling with ORM framework.
+- **Integrated transaction management**: By the help of Spring framework, we can wrap our mapping code with an explicit template wrapper class or AOP style method interceptor.
+
+#### Spring JPA/Hibernate
+
+##### 
+
+##### Architecture Walkthrough
+
+##### Spring Data JPA
+
 #### Spring MVC + ORM + XML
+
 #### Spring MVC + ORM + Annotations
 
 ### Spring JDBC
@@ -403,14 +546,7 @@ You can use @Autowired annotation on properties to get rid of the setter methods
 #### ModelAndView
 #### Form Validations
 
-### Design Patterns in Spring5
-#### Understanding the role of Design Patterns
-#### Spring Modules & Design Patterns
-
-### Spring JPA/Hibernate
-#### Introduction
-#### Architecture Walkthrough
-#### Spring Data JPA
+### Spring EL
 
 ### Spring REST
 #### Introduction
@@ -439,109 +575,11 @@ You can use @Autowired annotation on properties to get rid of the setter methods
 #### Apache ActiveMQ
 #### Apache Kafka
 
-## Spring Boot 2
+### Design Patterns in Spring5
 
-### Spring Boot Fundamentals
-Introduction & Architecture
-Leveraging Initializr & Dev Tools
-Custom Auto Configurations
-GET, POST, PUT & DELETE
-Spring Boot with Security
+#### Understanding the role of Design Patterns
 
-### Spring Boot JMS
-Spring Boot + ActiveMQ
-Spring Boot + Kafka
-Spring Boot + RabbitMQ
-
-### Spring Thymeleaf
-Overview
-Walkthrough & Demo
-
-### Docker
-Docker Images & Containers
-Docker Commands
-Docker Hub & Repository
-
-### Microservices
-Introduction & Architecture
-Spring Boot for Microservices
-
-### Jenkins
-Introduction
-Installation & Configuration
-Building & Packaging Java/ Maven Apps
-Deployment of Java Apps to Remote Servers
-Deploy Spring Boot Microservice on a Docker Container
-Jenkins, Delivery & Build Pipelines
-
-### Spring Cloud using Netflix OSS
-Overview & Architecture
-Microservices Co-ordination Scenarios
-Locating Services at Runtime
-Protecting Systems with Circuit Breakers
-Traffic routing of Microservices
-
-### Spring Cloud Streams
-Spring Cloud with RabbitMQ
-
-### Spring 5 Features
-Spring Core Enhancements
-Reactive Programming using WebFlux
-
-### Spring Boot Security
-Introduction
-Security Forms
-
-### Spring Thymeleaf
-Overview
-View Templates
-
-### Spring Data JPA + Caching
-Spring Boot + JPA
-Spring Boot with Caching
-
-### OWASP
-Introduction
-OWASP Top 10
-
-## DevOps & Cloud
-
-### Jenkins
-Introduction
-Installation & Configuration
-Building & Packaging Java/ Maven Apps
-Deployment of Java Apps to Remote Servers
-Deploy Spring Boot Microservice on a Docker Container
-Jenkins, Delivery & Build Pipelines
-
-### AWS
-Overview on Cloud Platform
-AWS Basics
-IAM, VPC, EC2
-ELB, EBS, S3
-Lambda, API Gateway
-DynamoDB
-
-### SDLC, CI/CD & Testing
-Understanding SDLC
-Unit Testing
-Understanding CI/CD, DevOps
-JUnit & Mockito
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### Spring Modules & Design Patterns
 
 
 

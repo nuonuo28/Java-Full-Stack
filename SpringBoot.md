@@ -12,10 +12,6 @@ Spring Boot + ActiveMQ
 Spring Boot + Kafka
 Spring Boot + RabbitMQ
 
-### Spring Thymeleaf
-Overview
-Walkthrough & Demo
-
 ### Docker
 Docker Images & Containers
 Docker Commands
@@ -24,14 +20,6 @@ Docker Hub & Repository
 ### Microservices
 Introduction & Architecture
 Spring Boot for Microservices
-
-### Jenkins
-Introduction
-Installation & Configuration
-Building & Packaging Java/ Maven Apps
-Deployment of Java Apps to Remote Servers
-Deploy Spring Boot Microservice on a Docker Container
-Jenkins, Delivery & Build Pipelines
 
 ### Spring Cloud using Netflix OSS
 Overview & Architecture

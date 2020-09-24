@@ -1,4 +1,4 @@
-# Spring
+Spring
 
 * IoC Container
 * Reduce or replace configuration
@@ -35,7 +35,12 @@ Following is the list of few of the great benefits of using Spring Framework −
 
 - **Transaction management** - Spring provides a consistent transaction management interface that can scale down to a local transaction (using a single database, for example) and scale up to global transactions (using JTA, for example).
 
+
+
+
+
 ### Architecture
+
 ![image-20200917022705577](Spring.assets/image-20200917022705577.png)
 
 ![image-20200917104746920](Spring.assets/image-20200917104746920.png)
@@ -73,7 +78,13 @@ There are few other important modules like AOP, Aspects, Instrumentation, Web an
 * The Messaging module provides support for STOMP as the WebSocket sub-protocol to use in applications. It also supports an annotation programming model for routing and processing STOMP messages from WebSocket clients.
 * The Test module supports the testing of Spring components with JUnit or TestNG frameworks.
 
+
+
+
+
 ### Spring Core
+
+---
 
 #### IoC (Inversion of Control) Container & Lifecycle
 The Spring container is at the core of the Spring Framework. 
@@ -201,6 +212,10 @@ There can be three types of factory method:
 <bean id="a" **class**="com.javatpoint.A"></bean> 
 <bean id="b" **class**="com.javatpoint.A" factory-method="getB" factory-bean="a"></bean> 
 ```
+
+---
+
+
 #### Configuration
 
 ##### Spring XML Configuration
@@ -212,6 +227,7 @@ applicationContext.xml
 * XML Configuration begins with this file Namespaces aid in configuration/validation
 
 ##### Java Configuration
+
 Java-based configuration option enables you to write most of your Spring configuration without XML.
 
 **@Configuration & @Bean**
@@ -231,7 +247,7 @@ public class HelloWorldConfig {
 ```
 **Injecting Bean Dependencies**
 When @Beans have dependencies on one another, expressing that the dependency is as simple as having one bean method calling another as follows −
-​```java
+```java
 package com.tutorialspoint;
 import org.springframework.context.annotation.*;
 
@@ -246,12 +262,13 @@ public class AppConfig {
       return new Bar();
    }
 }
-```
-Here, the foo bean receives a reference to bar via the constructor injection.
 
+```
+
+Here, the foo bean receives a reference to bar via the constructor injection.
 **@Import**
 The @Import annotation allows for loading @Bean definitions from another configuration class. Consider a ConfigA class as follows −
-​```java
+```java
 @Configuration
 public class ConfigA {
    @Bean
@@ -285,6 +302,7 @@ public class AppConfig {
 }
 ```
 ##### Annotation Based Configuration
+
 **@Required**
 The @Required annotation applies to bean property setter methods.
 **@Autowired**
@@ -293,6 +311,8 @@ The @Autowired annotation can apply to bean property setter methods, non-setter 
 The @Qualifier annotation along with @Autowired can be used to remove the confusion by specifiying which exact bean will be wired.
 **JSR-250 Annotations**
 Spring supports JSR-250 based annotations which include @Resource, @PostConstruct and @PreDestroy annotations.
+
+---
 
 #### Bean
 
@@ -421,6 +441,9 @@ A child bean definition inherits configuration data from a parent definition. Th
 Spring Bean definition inheritance has nothing to do with Java class inheritance but the inheritance concept is same. You can define a parent bean definition as a template and other child beans can inherit the required configuration from the parent bean.
 
 When you use XML-based configuration metadata, you indicate a child bean definition by using the parent attribute, specifying the parent bean as the value of this attribute.
+
+---
+
 #### Annotation
 
 ##### Stereotype Annotation
@@ -468,6 +491,10 @@ You can use @Autowired annotation on setter methods to get rid of the \<property
 **@Autowired on Properties/Member Variable**
 You can use @Autowired annotation on properties to get rid of the setter methods. When you will pass values of autowired properties using \<property\> Spring will automatically assign those properties with the passed values or references.
 
+
+
+
+
 ### Spring AOP
 
 **Aspect Oriented Programming** (AOP) compliments OOPs in the sense that it also provides modularity. The key unit of modularity in OOP is the class, whereas in AOP the unit of modularity is the aspect. Dependency Injection helps you decouple your application objects from each other and AOP helps you decouple cross-cutting concerns from the objects that they affect.
@@ -482,7 +509,10 @@ The concern is behavior that we want to have in a particular module of an applic
 
 The cross-cutting concern is a concern which is applicable throughout the application and it affects the entire application. For example, logging, security and data transfer is applicable for every module of an application hence they are cross-cutting concerns.
 
+---
+
 #### Terminologies
+
 **Aspect**
 This is a module which has a set of APIs providing cross-cutting requirements. For example, a logging module would be called AOP aspect for logging. An application can have any number of aspects depending on the requirement.
 
@@ -510,9 +540,16 @@ The object being advised by one or more aspects. This object will always be a pr
 **Weaving**
 Weaving is the process of linking aspects with other application types or objects to create an advised object. This can be done at compile time, load time, or at runtime.
 
+---
+
 #### Implementation
+
 1. **XML Schema based**: Aspects are implemented using the regular classes along with XML based configuration.
 2. **@AspectJ based**: @AspectJ refers to a style of declaring aspects as regular Java classes annotated with Java 5 annotations.
+
+
+
+
 
 ### Spring ORM (Object-Relational Mapping)
 Spring provides API to easily integrate Spring with ORM frameworks such as Hibernate, JPA(Java Persistence API), JDO(Java Data Objects), Oracle Toplink and iBATIS.
@@ -524,29 +561,285 @@ There are a lot of **advantages** of Spring framework in respect to ORM framewor
 - **Better exception handling**: Spring framework provides its own API for exception handling with ORM framework.
 - **Integrated transaction management**: By the help of Spring framework, we can wrap our mapping code with an explicit template wrapper class or AOP style method interceptor.
 
-#### Spring JPA/Hibernate
+------
 
-##### 
+#### Spring JPA
 
-##### Architecture Walkthrough
+##### **Spring Data JPA (Java Persistence API)**
 
-##### Spring Data JPA
+Object-Relational Mapping (ORM)Tools used to achieve ORM / implement JPA: Hibernate, iBatis, TopLink
+
+**JPA**: is a Java specification for accessing, persisting, and managing data between Java objects / classes and a relational database. It allows you to do the Object-Relational Mapping (ORM). JPA is now considered the standard industry approach for Object to Relational Mapping (ORM) in the Java Industry. JPA itself is just a specification, not a product; it cannot perform persistence or anything else by itself. JPA is just a set of interfaces, and it requires an implementation.
+
+**Spring Data JPA** API provides `JpaTemplate` class to integrate spring application with JPA.
+
+##### **Advantage of Spring JpaTemplate**
+
+You don't need to write the before and after code for persisting, updating, deleting or searching object such as creating Persistence instance, creating EntityManagerFactory instance, creating EntityTransaction instance, creating EntityManager instance, commiting EntityTransaction instance and closing EntityManager.
+
+So, it **save a lot of code**.
+
+##### Caching
+
+------
+
+#### Spring Hibernate
+
+##### **Hibernate and Spring Integration**
+
+We can simply integrate **hibernate application with spring application**.
+
+In hibernate framework, we provide all the database information hibernate.cfg.xml file.
+
+But if we are going to integrate the hibernate application with spring, we don't need to create the hibernate.cfg.xml file. We can provide all the information in the applicationContext.xml file.
+
+##### **Advantage of Spring framework with hibernate**
+
+The Spring framework provides **HibernateTemplate** class, so you don't need to follow so many steps like create Configuration, BuildSessionFactory, Session, beginning and committing transaction etc.
+
+So **it saves a lot of code**.
+
+------
+
+#### **Hibernate vs. JPA vs. Spring Data JPA**
+
+Hibernate is an ORM toll and a JPA implementation, while Spring Data JPA is a JPA Data Access Abstraction. Spring Data offers a solution to `GenericDao` custom implementations. It can also generate JPA queries on your behalf through method name conventions.
+
+With Spring Data, you may use Hibernate, Eclipse Link, or any other JPA provider. Spring Data JPA is not an implementation or JPA provider, it's just an abstraction used to significantly reduce the amount of boilerplate code required to implement data access layers for various persistence stores.
+
+---
 
 #### Spring MVC + ORM + XML
 
+---
+
 #### Spring MVC + ORM + Annotations
 
+
+
+
+
 ### Spring JDBC
-#### Understanding JdbcTemplate
+
+**Problems of JDBC API**
+The problems of JDBC API are as follows:
+- We need to write a lot of code before and after executing the query, such as creating connection, statement, closing resultset, connection etc.
+- We need to perform exception handling code on the database logic.
+- We need to handle transaction.
+- Repetition of all these codes from one to another database logic is a time consuming task.
+
+**Advantage of Spring JdbcTemplate**
+Spring JdbcTemplate eliminates all the above mentioned problems of JDBC API. It provides you methods to write the queries directly, so it saves a lot of work and time.
+
+All the classes in Spring JDBC are divided into four separate packages:
+
+- **core** – the core functionality of JDBC. Some of the important classes under this package include *JdbcTemplate*, *SimpleJdbcInsert,* *SimpleJdbcCall* and *NamedParameterJdbcTemplate*.
+- **datasource** – utility classes to access a datasource. It also has various datasource implementations for testing JDBC code outside the Jakarta EE container.
+- **object** – DB access in an object-oriented manner. It allows executing queries and returning the results as a business object. It also maps the query results between the columns and properties of business objects.
+- **support** – support classes for classes under *core* and *object* packages. E.g. provides the *SQLException* translation functionality.
+
+---
+
+#### JdbcTemplate
+
+It is the central class in the Spring JDBC support classes. The functionalities of JdbcTemplate:
+
+- Creation and closing of connections
+- Executing statements and stored procedure calls
+- Iterating over the ResultSet and returning results 
+
+It handles the exception and provides the informative exception messages by the help of excepion classes defined in the **org.springframework.dao** package.
+
+We can perform all the database operations by the help of JdbcTemplate class such as insertion, updation, deletion and retrieval of the data from the database.
+
+Let's see the methods of spring JdbcTemplate class.
+
+| No.  | Method                                                       | Description                                                  |
+| :--- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| 1)   | public int update(String query)                              | is used to insert, update and delete records.                |
+| 2)   | public int update(String query,Object... args)               | is used to insert, update and delete records using PreparedStatement using given arguments. |
+| 3)   | public void execute(String query)                            | is used to execute DDL query.                                |
+| 4)   | public T execute(String sql, PreparedStatementCallback action) | executes the query by using PreparedStatement callback.      |
+| 5)   | public T query(String sql, ResultSetExtractor rse)           | is used to fetch records using ResultSetExtractor.           |
+| 6)   | public List query(String sql, RowMapper rse)                 | is used to fetch records using RowMapper.                    |
+
+Firstly, let’s start with a simple example to see what the *JdbcTemplate* can do:
+
+```java
+int result = jdbcTemplate.queryForObject(
+    "SELECT COUNT(*) FROM EMPLOYEE", Integer.class);
+```
+and also here's a simple INSERT:
+```java
+public int addEmplyee(int id) {
+    return jdbcTemplate.update(
+      "INSERT INTO EMPLOYEE VALUES (?, ?, ?, ?)", id, "Bill", "Gates", "USA");
+}
+```
+
+---
+
+#### NamedParameterJdbcTemplate
+
+To get **support for named parameters**, we'll use the other JDBC template provided by the framework – the *NamedParameterJdbcTemplate*.
+
+Additionally, this wraps the *JbdcTemplate* and provides an alternative to the traditional syntax using “*?*” to specify parameters. Under the hood, it substitutes the named parameters to JDBC “?” placeholder and delegates to the wrapped *JDCTemplate* to execute the queries:
+
+```java
+SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", 1);
+return namedParameterJdbcTemplate.queryForObject(
+  "SELECT FIRST_NAME FROM EMPLOYEE WHERE ID = :id", namedParameters, String.class);
+```
+
+Notice how we are using the *MapSqlParameterSource* to provide the values for the named parameters.
+
+For instance, let's look at below example that uses properties from a bean to determine the named parameters:
+
+```java
+Employee employee = new Employee();
+employee.setFirstName("James");
+ 
+String SELECT_BY_ID = "SELECT COUNT(*) FROM EMPLOYEE WHERE FIRST_NAME = :firstName";
+ 
+SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(employee);
+return namedParameterJdbcTemplate.queryForObject(
+  SELECT_BY_ID, namedParameters, Integer.class);
+```
+
+Note how we're now making use of the *BeanPropertySqlParameterSource* implementations instead of specifying the named parameters manually like before.
+
+---
+
+#### RowMapper
+
+**RowMapper** interface allows to map a row of the relations with the instance of user-defined class. It iterates the ResultSet internally and adds it into the collection. So we don't need to write a lot of code to fetch the records as ResultSetExtractor.
+
+**Advantage of RowMapper over ResultSetExtractor**
+
+RowMapper saves a lot of code becuase it internally adds the data of ResultSet into the collection.
+
+Another very useful feature is the ability to map query results to Java objects – by implementing *the RowMapper* interface.
+
+For example – for every row returned by the query, Spring uses the row mapper to populate the java bean:
+
+```java
+public class EmployeeRowMapper implements RowMapper<Employee> {
+    @Override
+    public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Employee employee = new Employee();
+ 
+        employee.setId(rs.getInt("ID"));
+        employee.setFirstName(rs.getString("FIRST_NAME"));
+        employee.setLastName(rs.getString("LAST_NAME"));
+        employee.setAddress(rs.getString("ADDRESS"));
+ 
+        return employee;
+    }
+}
+```
+
+Subsequently, we can now pass the row mapper to the query API and get fully populated Java objects:
+
+```java
+String query = "SELECT * FROM EMPLOYEE WHERE ID = ?";
+Employee employee = jdbcTemplate.queryForObject(
+  query, new Object[] { id }, new EmployeeRowMapper());
+```
+
+---
+
+#### PreparedStatement
+
+---
+
+#### ResultSetExtractor
+
+---
+
+#### SimpleJdbcTemplate
+
+---
+
 #### Implementing CRUD ops
+
+---
+
 #### Spring Transactions
 
+
+
+
+
 ### Spring MVC
-#### Architecture
+
+A Spring MVC is a Java framework which is used to build web applications. It follows the Model-View-Controller design pattern and ready components that can be used to develop flexible and loosely coupled web applications.
+
+- The **Model** encapsulates the application data and in general they will consist of POJO.
+- The **View** is responsible for rendering the model data and in general it generates HTML output that the client's browser can interpret.
+- The **Controller** is responsible for processing user requests and building an appropriate model and passes it to the view for rendering.
+- **Front Controller** - In Spring Web MVC, the DispatcherServlet class works as the front controller. It is responsible to manage the flow of the Spring MVC application.
+
+---
+
+#### Work Flow
+
+A Spring MVC provides an elegant solution to use MVC in spring framework by the help of **DispatcherServlet**. Here, **DispatcherServlet** is a class that receives the incoming request and maps it to the right resource such as controllers, models, and views.
+
+![Spring MVC Tutorial](Spring.assets/flow-of-spring-web-mvc.png)
+
+- As displayed in the figure, all the incoming request is intercepted by the DispatcherServlet that works as the front controller.
+- The DispatcherServlet gets an entry of handler mapping from the XML file and forwards the request to the controller.
+- The controller returns an object of ModelAndView.
+- The DispatcherServlet checks the entry of view resolver in the XML file and invokes the specified view component.
+
+---
+
+#### Advantages
+
+Let's see some of the advantages of Spring MVC Framework:-
+
+- **Separate roles** - The Spring MVC separates each role, where the model object, controller, command object, view resolver, DispatcherServlet, validator, etc. can be fulfilled by a specialized object.
+- **Light-weight** - It uses light-weight servlet container to develop and deploy your application.
+- **Powerful Configuration** - It provides a robust configuration for both framework and application classes that includes easy referencing across contexts, such as from web controllers to business objects and validators.
+- **Rapid development** - The Spring MVC facilitates fast and parallel development.
+- **Reusable business code** - Instead of creating new objects, it allows us to use the existing business objects.
+- **Easy to test** - In Spring, generally we create JavaBeans classes that enable you to inject test data using the setter methods.
+- **Flexible Mapping** - It provides the specific annotations that easily redirect the page.
+
+---
+
 #### ModelAndView
+
+---
+
 #### Form Validations
 
-### Spring EL
+
+
+
+
+### SpEL (Spring Expression Language) 
+
+**SpEL** is an exression language supporting the features of querying and manipulating an object graph at runtime.
+
+There are many expression languages available such as JSP EL, OGNL, MVEL and JBoss EL. SpEL provides some additional features such as method invocation and string templating functionality.
+
+---
+
+#### SpEL API
+
+The SpEL API provides many interfaces and classes. They are as follows:
+
+- Expression interface
+- SpelExpression class
+- ExpressionParser interface
+- SpelExpressionParser class
+- EvaluationContext interface
+- StandardEvaluationContext class
+
+
+
+
 
 ### Spring REST
 #### Introduction
@@ -554,26 +847,295 @@ There are a lot of **advantages** of Spring framework in respect to ORM framewor
 #### Spring REST Template
 #### Testing
 
+
+
+
+
 ### Spring Security
-#### Architecture
-#### User storage in DB
-#### Spring Security Client Integration
-#### Password Storage
-#### Customizing Spring Security
-#### Authentication using LDAP
-#### Handling HTTPS
+
+Spring SecurityApplication level securitySpring security is an application security frameworkSpring Security is a powerful and highly customizable authentication and access-control framework. It is a de- facto standard for securing Spring-based applications
+2 Questions asked by Spring 
+
+- SecurityWho are you? Provide ID to prove who you are
+- What do you want?
+
+##### Advantages
+
+- Spring Security + Configuration => Flexibility and Cuatomizable
+- Handles common vulnerabilities
+- Widely adopted
+
+##### What can Spring Security do?
+
+- User name / password authenticationSSO/Okta/LDAP
+- App level authenticationIntra 
+- App Authorization like OAuth
+- Microservice security (using tokens, JWT)
+- Methods level security
+
+##### Mechanisms of Spring Security
+
+- Authentication
+- Authorization
+- Multi-Factor Authentication
+- Captcha
+- Encoding
+- Identifying / Registering Client Devices Key Pairs
+- Tracking Failed Attempts
+- Auto Logout / Session Timeout
+
+##### 5 Core Concepts in Spring Security
+
+- **Authentication** (answer who you are by providing an ID)
+  - Knowledge Based Authentication
+    - Password
+    - Pin code
+    - Answer to a personal question
+  - Possession based Authentication
+    - Phone/text messages
+    - Key cards and badges
+    - Access token device
+  - Multi factor Authentication (combination of the 2 above)
+- **Authorization** (answer what the user can do)
+- **Principal**: currently logged in user / account and context of the application
+- **Granted** **Authority**: permissions of actions of one user (fine-grained)
+- **Roles**: group of users that has the same permissions of actions (coarse-grained permission)
+
+##### How to add Spring Security to Spring Boot
+
+- Dependency: spring-boot-starter-security (maven dependency)
+  - Spring Security Default Behavior (only add the dependency without configuration):
+    - Adds mandatory authentication for URLs
+    - Add login form
+    - Handles login error
+    - Create a user and sets a default password (in the console: user, password)
+
+- Configuration: in “application.properties”
+
+##### How to configure authentication in Spring Security
+
+- AuthenticationManager: authentication()
+- AuthenticationManagerBuilder: configure AuthenticationManager
+  - Get hold of AuthenticationManagerBuilder
+    - Create a class extends WebSecurityConfigurerAdapter
+    - Override configure(AuthenticationManagerBuilder) to set the authentication configure
+    - Add @EnableWebSecurity annotation
+    - Add @Bean public PasswordEncoder getPasswordEncoder() {return ...}
+  - Set the configuration on it
+
+##### How to configure authorization in Spring Security
+
+HttpSecurity
+
+- Create APIs for different Roles
+- In the same class
+  - Override configure(HttpSecurity) to set the authorization configure
+- Set the configuration on it
+
+---
+
 #### Security using JWT
-#### Security using SAML
+
+Spring Boot + Spring Security + JWT:
+
+- JWT: JSON Web Tokens
+
+  JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed.
+
+- JWT focus on authorization
+
+  Authorization Strategies:
+
+  - Session token (Reference token)
+  - JSON web token (Value token)
+
+(HTTP is stateless protocol) Session ID + Cookies: 
+
+Load Balancer: shared cache Redis to store the session and session ID
+
+##### JWT Structure
+
+JSON Web Tokens consist of three parts separated by dots (.), which are:
+
+- Header
+  - The header typically consists of two parts: the type of the token, which is JWT, and the signing algorithm being used, such as HMAC SHA256 or RSA.
+  - For example:{ "alg": "HS256", "typ": "JWT"}
+  - Then, this JSON is Base64Url encoded to form the first part of the JWT.
+- Payload
+  - The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional data. There are three types of claims: registered, public, and private claims.
+- Signature
+  - To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
+  - The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is.
+
+Therefore, a JWT typically looks like the following.Xxxxx.yyyyy.zzzzz
+OAuth can be used to protect JWT from stealing
+
+---
+
 #### Security with OAuth2
 
+Authorization between services
+
+OAuth is a delegated authorization framework for REST/APIs. It enables apps to obtain limited access (scopes) to a user’s data without giving away a user’s password. It decouples authentication from authorization and supports multiple use cases addressing different device capabilities. It supports server-to-server apps, browser-based apps, mobile/native apps, and consoles/TVs.
+
+To break it down simply, OAuth is where:
+
+1. App requests authorization from User
+2. User authorizes App and delivers proof
+3. App presents proof of authorization to server to get a Token
+4. Token is restricted to only access what the User authorized for the specific App
+
+OAuth is built on the following central components:
+
+- Scopes and Consent 
+  Scopes are what you see on the authorization screens when an app requests permissions. They’re bundles of permissions asked for by the client when requesting a token. These are coded by the application developer when writing the application.
+
+  ![OAuth Scopes](Spring.assets/oauth-scopes-7ea53a0efe6c05a8113671297f641baae7486dfb6ab8b8357c74cb6e6f8371ce.png)
+
+- Actors: The actors in OAuth flows are as follows:
+
+  - **Resource Owner**: owns the data in the resource server. For example, I’m the Resource Owner of my Facebook profile.
+  - **Resource Server**: The API which stores data the application wants to access
+  - **Client**: the application that wants to access your data
+  - **Authorization Server**: The main engine of OAuth
+
+  ![OAuth Actors](Spring.assets/oauth-actors-cd8b4861e839037400d8521e97c5d8cf0cb029add65d1036488991c7e85dcb72.png)
+
+- Clients: The applications that want to access your data
+
+- Tokens: Access tokens are the token the client uses to access the Resource Server (API). They’re meant to be short-lived. You can get access tokens with public clients. They’re designed to optimize for internet scale problems. The OAuth spec doesn’t define what a token is. It can be in whatever format you want. Usually though, you want these tokens to be JSON Web Tokens (a [standard](https://tools.ietf.org/html/rfc7519)). In a nutshell, a JWT (pronounced “jot”) is a secure and trustworthy standard for token authentication. JWTs allow you to digitally sign information (referred to as claims) with a signature and can be verified at a later time with a secret signing key.
+
+- Authorization Server
+
+- Flows
+
+  The very first flow is what we call the **Implicit Flow**. The reason it’s called the implicit flow is because all the communication is happening through the browser. There is no backend server redeeming the authorization grant for an access token. An SPA is a good example of this flow’s use case. This flow is also called 2 Legged OAuth. Implicit flow is optimized for browser-only public clients. An access token is returned directly from the authorization request (front channel only). It typically does not support refresh tokens. It assumes the Resource Owner and Public Client are on the same device. Since everything happens on the browser, it’s the most vulnerable to security threats.
+
+  The gold standard is the **Authorization Code Flow**, aka 3 Legged, that uses both the front channel and the back channel. This is what we’ve been talking about the most in this article. The front channel flow is used by the client application to obtain an authorization code grant. The back channel is used by the client application to exchange the authorization code grant for an access token (and optionally a refresh token). It assumes the Resource Owner and Client Application are on separate devices. It’s the most secure flow because you can authenticate the client to redeem the authorization grant, and tokens are never passed through a user-agent. There’s not just Implicit and Authorization Code flows, there are additional flows you can do with OAuth. Again, OAuth is more of a framework.
+
+  For server-to-server scenarios, you might want to use a **Client Credential Flow**. In this scenario, the client application is a confidential client that’s acting on its own, not on behalf of the user. It’s more of a service account type of scenario. All you need is the client’s credentials to do the whole flow. It’s a back channel only flow to obtain an access token using the client’s credentials. It supports shared secrets or assertions as client credentials signed with either symmetric or asymmetric keys. Symmetric-key algorithms are cryptographic algorithms that allow you to decrypt anything, as long as you have the password. This is often found when securing PDFs or .zip files. Public key cryptography, or asymmetric cryptography, is any cryptographic system that uses pairs of keys: public keys and private keys. Public keys can be read by anyone, private keys are sacred to the owner. This allows data to be secure without the need to share a password.
+
+  There’s also a legacy mode called **Resource Owner Password Flow**. This is very similar to the direct authentication with username and password scenario and is not recommended. It’s a legacy grant type for native username/password apps such as desktop applications. In this flow, you send the client application a username and password and it returns an access token from the Authorization Server. It typically does not support refresh tokens and it assumes the Resource Owner and Public Client are on the same device. For when you have an API that only wants to speak OAuth, but you have old-school clients to deal with.
+
+  A more recent addition to OAuth is the **Assertion Flow**, which is similar to the client credential flow. This was added to open up the idea of federation. This flow allows an Authorization Server to trust authorization grants from third parties such as SAML IdP. The Authorization Server trusts the Identity Provider. The assertion is used to obtain an access token from the token endpoint. This is great for companies that have invested in SAML or SAML-related technologies and allow them to integrate with OAuth. Because SAML assertions are short-lived, there are no refresh tokens in this flow and you have to keep retrieving access tokens every time the assertion expires.
+
+  Not in the OAuth spec, is a **Device Flow**. There’s no web browser, just a controller for something like a TV. A user code is returned from an authorization request that must be redeemed by visiting a URL on a device with a browser to authorize. A back channel flow is used by the client application to poll for authorization approval for an access token and optionally a refresh token. Also popular for CLI clients.v
+
+---
+
+#### Architecture
+
+---
+
+#### User storage in DB
+
+---
+
+#### Spring Security Client Integration
+
+---
+
+#### Password Storage
+
+---
+
+#### Customizing Spring Security
+
+---
+
+#### Authentication using LDAP
+
+It stands for Lightweight Directory Access Protocol and it's an open, vendor-neutral protocol for accessing directory services over a network.
+
+LDAP directory servers are read-optimized hierarchical data stores. Typically, they're used for storing user-related information required for user authentication and authorization.
+
+---
+
+#### Handling HTTPS
+
+---
+
+#### Security using SAML
+SAML (Security Assertion Mark-up Language) is an open standard provide single-sign-on to web-based applications.  The protocol can be used for both authentication and authorization.
+
+The SAML protocol has three entities:
+
+- **User Agent**: User's browser
+- **Service Provider (SP)**:  The entity providing the service, the application which you try to access..
+- **Identity Provider (IdP)**:  The entity providing the identities, including the ability to authenticate a user. The Identity Provider typically also contains the user profile: additional information about the user such as first name, last name, job code, phone number, address, and so on. Depending on the application, some service providers may require a very simple profile (username, email), while others may require a richer set of user data (job code, department, address, location, manager, and so on).
+
+Other Terminologies
+
+- A **SAML Request**, also known as an authentication request, is generated by the Service Provider to "request" an authentication.
+- A **SAML Response** is generated by the Identity Provider. It contains the actual assertion of the authenticated user. In addition, a SAML Response may contain additional information, such as user profile information and group/role information, depending on what the Service Provider can support.
+- A **Service Provider Initiated (SP-initiated)** sign-in describes the SAML sign-in flow when initiated by the Service Provider. This is typically triggered when the end user tries to access a resource or sign in directly on the Service Provider side, such as when the browser tries to access a protected resource on the Service Provider side.
+- An **Identity Provider Initiated (IdP-initiated)** sign-in describes the SAML sign-in flow initiated by the Identity Provider. Instead of the SAML flow being triggered by a redirection from the Service Provider, in this flow the Identity Provider initiates a SAML Response that is redirected to the Service Provider to assert the user's identity.
+
+##### SAML Flow
+
+- SP initiated flow
+- IDP initiated flow
+
+ ![SAML Flow](Spring.assets/saml_guidance_saml_flow.png)
+
+#### Differences between OAuth and SAML
+
+SAML (Security Assertion Mark-up Language) is an standard that covers federation, identity management and single sign-on (SSO). 
+
+OAuth (Open Authorisation) is a standard for **authorisation** of resources. Unlike SAML, it doesn’t deal with **authentication**.
+
+Typical use cases for each of the standards. 
+
+Even though SAML was actually designed to be widely applicable, its contemporary usage is typically shifted towards enterprise SSO scenarios. On the other hand, OAuth was designed for use with applications on the Internet, especially for delegated authorisation.
+
+![SAML vs OAuth table](Spring.assets/Jesse_blogi_kaavio-750x239.jpg)
+
+However, both can be used for web SSO, providing single sign-on for multiple web applications. But the terms are different.
+
+![SAML vs OAuth table 2](Spring.assets/Jesse_blogi_kaavio_2-750x247.jpg)
+
+##### Differences in Flow
+
+![SAML flow](Spring.assets/SAML_flow-768x509.jpg)
+
+![OAuth flow](Spring.assets/OAuth_flow-768x545.jpg)
+
 ### Spring SOAP
-#### Overview
+
+A web service is, in short, a machine-to-machine, platform independent service that allows communication over a network.
+
+SOAP is a messaging protocol. Messages (requests and responses) are **XML documents over HTTP**. **The XML contract is defined by the WSDL** (Web Services Description Language). It provides a set of rules to define the messages, bindings, operations, and location of the service.
+
+The XML used in SOAP can become extremely complex. For this reason, it is best to use SOAP with a framework like [JAX-WS](https://www.baeldung.com/jax-ws) or Spring, as we'll see in this tutorial.
+
+---
+
+#### Contract-First Development Style
+
+There are two possible approaches when creating a web service: Contract-Last and [Contract-First](https://docs.spring.io/spring-ws/sites/1.5/reference/html/why-contract-first.html). When we use a contract-last approach, we start with the Java code, and we generate the web service contract (WSDL) from the classes. When using contract-first, **we start with the WSDL contract, from which we generate the Java classes.**
+
+Spring-WS only supports the contract-first development style.
+
+---
+
 #### Producing & Consuming WSDL
 
+
+
+
+
 ### JMS
+
+JMS (Java Message Service) is an API that provides the facility to create, send and read messages. It provides loosely coupled, reliable and asynchronous communication.
+JMS is also known as a messaging service.
+
 #### Overview of Message Brokers
 #### Apache ActiveMQ
 #### Apache Kafka
+
+
+
+
 
 ### Design Patterns in Spring5
 

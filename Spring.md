@@ -762,6 +762,16 @@ Employee employee = jdbcTemplate.queryForObject(
 
 #### Implementing CRUD ops
 
+CRUD:
+
+Create
+
+Read
+
+Update
+
+Delete
+
 ---
 
 #### Spring Transactions
@@ -843,11 +853,37 @@ The SpEL API provides many interfaces and classes. They are as follows:
 
 ### Spring REST
 #### Introduction
+
+REpresentational State Transfer (REST) is an architectural style that defines a set of constraints and properties based on HTTP.
+
+CRUD:
+
+Create - POST
+
+Read - GET
+
+Update - PUT
+
+Delete - DELETE
+
+![image-20200925015407615](Spring.assets/image-20200925015407615.png)
+
+#### Architecture
+
+![image-20200925022623782](Spring.assets/image-20200925022623782.png)
+
+![image-20200925022910262](Spring.assets/image-20200925022910262.png)
+
+#### Exception Handling
+
+![image-20200925023024136](Spring.assets/image-20200925023024136.png)
+
 #### Spring MVC + Jackson
+
+Jackson is a very popular and efficient java based library to serialize or map java objects to JSON and vice versa. 
+
 #### Spring REST Template
 #### Testing
-
-
 
 
 
@@ -1120,7 +1156,7 @@ Spring-WS only supports the contract-first development style.
 
 #### Producing & Consuming WSDL
 
-
+![image-20200925033513648](Spring.assets/image-20200925033513648.png)
 
 
 
@@ -1133,7 +1169,10 @@ JMS is also known as a messaging service.
 #### Apache ActiveMQ
 #### Apache Kafka
 
-
+Kafka vs RabbitMQ vs ActiveMQ
+ActiveMQ is an open-source, multi-protocol, Java-based messaging server. It implements the JMS (Java Message Service) API and is able to support various messaging protocols including AMQP, STOMP, and MQTT. It is commonly used for sending messages between applications/services.
+Kafka is an open-source stream-processing software developed by LinkedIn (and later donated to Apache) to effectively manage their growing data and switch to real-time processing from batch-processing. It is written in Scala and Java and based on the publish-subscribe model of messaging.
+RabbitMQ is a “traditional” message broker that implements variety of messaging protocols. It was one of the first open source message brokers to achieve a reasonable level of features, client libraries, dev tools, and quality documentation. RabbitMQ was originally developed to implement AMQP, an open wire protocol for messaging with powerful routing features. While Java has messaging standards like JMS, it’s not helpful for non-Java applications that need distributed messaging which is severely limiting to any integration scenario, microservice or monolithic. With the advent of AMQP, cross-language flexibility became real for open source message brokers.
 
 
 

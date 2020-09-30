@@ -1715,25 +1715,6 @@ Amazon EBS provides two types of volume that differ in performance characteristi
 - SSD-backed volumes
 - HDD-backed volumes
 
-##### What is EBS?
-
-- EBS stands for **Elastic Block Store**.
-- EC2 is a virtual server in a cloud while EBS is a virtual disk in a cloud.
-- Amazon EBS allows you to create storage volumes and attach them to the EC2 instances.
-- Once the storage volume is created, you can create a file system on the top of these volumes, and then you can run a database, store the files, applications or you can even use them as a block device in some other way.
-- Amazon EBS volumes are placed in a specific availability zone, and they are automatically replicated to protect you from the failure of a single component.
-- EBS volume does not exist on one disk, it spreads across the Availability Zone. EBS volume is a disk which is attached to an EC2 instance.
-- EBS volume attached to the EC2 instance where windows or Linux is installed known as Root device of volume.
-
-##### EBS Volume Types
-
-![AWS EBS](SpringBoot.assets/aws-ebs-20200926235229658.png)
-
-Amazon EBS provides two types of volume that differ in performance characteristics and price. EBS Volume types fall into two parts:
-
-- SSD-backed volumes
-- HDD-backed volumes
-
 #### Lambda, API Gateway
 
 ##### What is Lambda?

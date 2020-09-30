@@ -799,7 +799,7 @@ A Spring MVC provides an elegant solution to use MVC in spring framework by the 
 
 - As displayed in the figure, all the incoming request is intercepted by the DispatcherServlet that works as the front controller.
 - The DispatcherServlet gets an entry of handler mapping from the XML file and forwards the request to the controller.
-- The controller returns an object of ModelAndView.
+- The controller calls the appropriate service methods based on used GET or POST method and returns an object of ModelAndView.
 - The DispatcherServlet checks the entry of view resolver in the XML file and invokes the specified view component.
 
 ---
@@ -819,6 +819,8 @@ Let's see some of the advantages of Spring MVC Framework:-
 ---
 
 #### ModelAndView
+
+Holder for both Model and View in the web MVC framework.
 
 ---
 

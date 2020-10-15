@@ -1,11 +1,13 @@
 ## Self Introduction
-Hi my name is Eliana, I am an experienced Java Full-Stack developer with expertise in developing and deploying web applications and microservices in **Java/Java EE** industrial development environment and using related frameworks such as [**Spring MVC**](###Spring-MVC), **Spring boot**, **Spring Cloud**, **Spring Security**, etc. 
+Hi my name is Eliana, I am an experienced Java Full-Stack developer with expertise in developing and deploying web applications and microservices in **Java/Java EE** industrial development environment and using related frameworks such as [**Spring MVC**](###Spring-MVC), **Spring boot**, **Spring Cloud**, **Spring Security**, **Spring JDBC** and many others. 
 
 I have previous experience in multiple business domains including E-commerce, Social Media, Health Care and Finance.
 
 I am proficient in **designing, coding, integrating and testing software (SDLC)** implementations and SDLC methodology such as [**Agile Scrum**](####Agile) and [**WaterFall**](####Waterfall). 
 
-I have a solid foundation in Core Java such as **OOP concepts**, **collections framework**, **exception handling**, **I/O system**, **Multi-threading**. I also developed applications using **JDBC**, **JSP** and **Servlet** with relational databases such as **MySQL**. I also worked with noSQL databases such as **MongoDB**, **DynamoDB**.
+I have a solid foundation in data structures and algorithms, and familiar with Core Java concepts such as **OOP concepts**, **collections framework**, **exception handling**, **I/O system**, **Multi-threading**, **garbage collection**.
+
+I have previous experience with Hibernate, I also developed applications using [**JDBC**](###JDBC), [**JSP**](###JSP) and [**Servlet**](###Servlet) with relational databases such as **MySQL**. I also worked with noSQL databases such as **MongoDB**, **DynamoDB**. Beside, I have hands-on experience in Object Relational Mapping (ORM) using **Hibernate** **5.x** and **Spring Data JPA**
 
 I have extensive experience in building distributed systems with **Tomcat Cluster**, **Nginx** and **Redis**
 
@@ -13,25 +15,27 @@ I am also an expert in using Java Messaging Services JMS 2 for reliable informat
 
 Besides, I have experience in Microservices development using [**Spring Cloud**](###Spring-Cloud) tools including **Netflix Eureka**, **Ribbon**, **Zuul** API, **Zipkin**, **Hystrix**. 
 
-I also worked on building security modules with **SSO** using Spring security, **Spring AOP**. In my previous experience, I achieved Role-Based Access Control (RBAC) using Spring Security and **OAuth** to make **authentication** and **authorization**.
+I also worked on building security modules with **SSO** using Spring security,  [**Spring AOP**](###Spring-AOP). In my previous experience, I achieved Role-Based Access Control (RBAC) using Spring Security and **OAuth** to make [**authentication** and **authorization**](###Authorization-vs-Authentication).
 
 Furthermore, I have a deep understanding of Testing with [**Test Driven Development (TDD)**](###TDD) environment and multiple testing tools like [**JUnit**](###JUnit), **Mockito**.
 
-I worked on **CICD** process, Integrated [**Docker**](###Docker), [**Git**](###Git-vs-Svn) and Maven plugin with [**Jenkins**](###Jenkins) for continuous deployment. 
+I worked on [**CICD**](###CICD) process, Integrated [**Docker**](###Docker), [**Git**](###Git-vs-Svn) and Maven plugin with [**Jenkins**](###Jenkins) for continuous deployment. 
 
-I have expertise in Amazon Web Services (**AWS**) such as **IAM**, **EC2**, **S3**, **Lambda**, **RDS**, etc
+I have expertise in Amazon Web Services (**AWS**) including launching, managing and troubleshooting [**EC2 instances**](####EC2), [**S3 Buckets**](####S3), **Elastic Beanstalk**, **Relational Database Services** (RDS), **EBS** volumes, **Elastic load Balancers**, **Auto Scaling Groups**, **Route 53**, **IAM** and **AWS Lambda**.
 
 As a full-stack developer. I am also familiar with front-end technologies such as **Angular**, **HTML**, **CSS**, **Bootstrap**, **Ajax**, **freemarker** and **jQuery** and I’m able to build robust and easy to use UI pages.I’m also experienced in building web application using **React**, **React Native** and **Redux**
+
+I am also skilled in **Tableau, D3.JS**, **JFreeChart** and **Jasper** for visualization and reporting
 
 Personally, I’m self-motivated and capable of working independently. I am also a team player with excellent analytical, technical and communicational skills.I’m also capable of working under changing requirements and tight deadlines.
 
 ## Project 1
 
-In my most recent project, I worked in Catholic Health Initiatives which offers expertise, convenience, resources and best-in-class health care.In this project to improve the existing modules including messaging, employee management, and build a reusable and robust security module to improve the management of employee and user authentication and authorization by using **Spring Security**.
+In my most recent project, I worked in Catholic Health Initiatives which offers expertise, convenience, resources and best-in-class health care.In this project to improve the existing modules including messaging, employee management, and build a reusable and robust security module to improve the management of employee and user [authentication and authorization](###Authentication-vs-Authorization) by using **Spring Security**.
 
 - My responsibility is to improve the security module and the employee management system.
 
-- To do this, I added **Single Sign On (SSO)** with **JSON Web Token (JWT)** to the web application.
+- To do this, I added **Single Sign On (SSO)** with [**JSON Web Token (JWT)**](###JWT) to the web application.
 
 - I Designed the user management module and authorization control with **MySQL** based on **Role-Based Access Control (RBAC)**
 
@@ -57,7 +61,7 @@ The AuthenticationToken contains information about an authenticated HTTP client 
 
 ## Project 2
 
-In my second most recent project, I build a scalable Micro-Services for dish ordering and delivering with customer services on mobile and restaurant online management services using Spring Boot Cloud, it allows customers to order, make payment, refund and track the food delivery process. It also provides restaurants with convenient management service of orders and inventories. There are other features including instant status update and notification, authorization using Spring Security to make the application reliable and easy to use.
+In my second most recent project, I build a scalable Micro-Services for dish ordering and delivering with customer services on mobile and restaurant online management services using Spring Boot Cloud, it allows customers to order, make payment, refund and track the food delivery process. It also provides restaurants with convenient management service of orders and inventories. There are other features including instant status update and notification, authorization using Spring Security which makes the application reliable and easy to use.
 
 Responsibilities:
 
@@ -93,11 +97,29 @@ Responsibilities:
 
 ##  Concepts
 
+[Application Context vs Bean Factory](###Application-Context-vs-Bean-Factory)
 
+[Spring IOC](###Spring-IOC)
 
+[JPA vs Hibernate](####JPA-vs-Hibernate)
 
+[SAML vs LDAP vs Ouath2](###SAML-vs-LDAP-vs-Ouath2)
 
+[Thymeleaf](###Thymeleaf)
 
+[Design Pattern](###Design-Pattern)
+
+[SOAP vs Rest](####SOAP-vs-Rest)
+
+[Feature of Java 8](###Feature-of-Java-8)
+
+### Spring IOC
+
+Spring IoC is the mechanism to achieve loose-coupling between Objects dependencies. To achieve loose coupling and dynamic binding of the objects at runtime, objects dependencies are injected by other assembler objects. Spring IoC container is the program that **injects** dependencies into an object and make it ready for our use.
+
+### **Application Context** vs **Bean Factory**
+
+The interfaces Bean Factory and Appl ication Context represent the Spring IOC container. Bean Factory is the root interface for accessing the Spring container. It provides basic functionalities for managing beans. But Application Context is a sub-interface of the Bean Factory. Hence, it offers all the functionalities of Bean Factory. Bean Factory doesn't provide support for internationalization but Application Context provides support for it.
 
 ### Agile vs Waterfall
 
@@ -164,6 +186,8 @@ Waterfall is the traditional way of developing a software. It’s a linear appro
 | Description of project details can be altered anytime during the SDLC process. | Detail description needs to implement waterfall software development approach. |
 | The Agile Team members are interchangeable, as a result, they work faster. There is also no need for project managers because the projects are managed by the entire team | In the waterfall method, the process is always straightforward so, project manager plays an essential role during every stage of SDLC. |
 
+
+
 ### TDD
 
 “Test-driven development” refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring).
@@ -175,6 +199,39 @@ It can be succinctly described by the following set of rules:
 3. write “just enough” code, the simplest possible, to make the test pass
 4. “refactor” the code until it conforms to the simplicity criteria
 5. repeat, “accumulating” unit tests over time
+
+
+
+### Feature of Java 8:
+
+**Default method**: The default methods were introduced to provide backward compatibility so that existing interfaces can use the lambda expressions without implementing the methods in the implementation class. Default methods are also known as **defender methods** or **virtual extension methods**.
+
+**Lambda:** A lambda expression is a short block of code which takes in parameters and returns a value. Lambda expressions are similar with methods, but they do not need a name and they can be implemented right in the body of a method.
+
+**Stream API:** It is used to process collections of objects. A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.
+ The features of Java stream are:
+
+A stream is not a data structure instead it takes input from the Collections, Arrays or I/O channels.
+
+Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
+
+Each intermediate operation is lazily executed and returns a stream as a result, hence various intermediate operations can be pipelined. Terminal operations mark the end of the stream and return the result.
+
+**Functional Interfaces:** It is an interface that contains only one abstract method. They can have only one functionality to exhibit. From Java 8 onwards, lambda expressions can be used to represent the instance of a functional interface. A functional interface can have any number of default methods.
+
+
+
+### JDBC
+
+#### JDBC vs ORM
+
+**JDBC** (Java Database Connectivity) is the Java API that manages connecting to a database, issuing queries and commands, and handling result sets obtained from the database. ORM responsible for establishing connections with the database, unlike JDBC. It uses Query Language to communicate with the database and execute the queries. After, ORM maps itself the results to corresponding Java objects. 
+
+
+
+### Servlet
+
+A **servlet** is a Java programming language class that is used to extend the capabilities of servers that host applications accessed by means of a request-response programming model. Although **servlets** can respond to any type of request, they are commonly used to extend the applications hosted by web servers.
 
 
 
@@ -213,6 +270,14 @@ Let's see some of the advantages of Spring MVC Framework:-
 - **Reusable business code** - Instead of creating new objects, it allows us to use the existing business objects.
 - **Easy to test** - In Spring, generally we create JavaBeans classes that enable you to inject test data using the setter methods.
 - **Flexible Mapping** - It provides the specific annotations that easily redirect the page.
+
+#### Spring MVC vs Struts2
+
+Well, Apache Struts 2 is an elegant and extensible framework that is used for creating enterprise-level Java web applications. It is designed to streamline the development cycle, starting from building to deployment and maintenance of the application. In Struts, the object that is taking care of a request and routes it for further processing is known as “Action”.
+
+On the other hand, Spring MVC is a part of a huge Spring framework stack containing other Spring modules. This means that it doesn’t allow developers to run it without Spring, but the developers can run the Spring Core without Spring MVC. The Spring MVC (Model View Controller) is designed around a DispatcherServlet, which dispatches the requests to handler with configurable handler mappings, view resolution and theme resolution.
+
+While the objects responsible for handling requests and routing for processing in Struts called an Action, the same object is referred as Controller in Spring Web MVC framework. This is one of the very first differences between Spring MVC and Struts2. Struts 2 Actions are initiated every time when a request is made, whereas in Spring MVC the Controllers are created only once, stored in memory and shared among all the requests. So, Spring Web MVC framework is far efficient to handle the requests than Struts 2.
 
 
 
@@ -276,7 +341,13 @@ The microservice defines an approach to the architecture that divides an applica
 
 Microservice helps in breaking the application and build a logically independent smaller applications. For example, we can build a cloud application with the help of Amazon AWS with minimum efforts.
 
+#### Monolithic vs Microservices
 
+Monolithic architecture is built as one large system and is usually one code base. Monolithic application is tightly coupled and entangled as the application evolves, making it difficult to isolate services for purposes such as independent scaling or code maintainability.
+
+It extremely difficult to change technology or language or framework because everything is tightly coupled and depend on each other.
+
+Microservices architecture is built as small independent module based on business functionality. In microservices application, each project and services are independent from each other at the code level. Therefore, it is easy to configure and deploy completely and also to scale based on demand.
 
 ### Spring Cloud
 
@@ -345,3 +416,179 @@ Spring Cloud pipeline is an opinionated (self-important) pipeline for Jenkins an
 The Jenkins pipeline provides a set of the tool designed for modeling simple and more advanced delivery pipeline as code. The definition of a pipeline is written into a text file called Jenkinsfile.
 
 The pipeline has **two** syntaxes: **Declarative** and **Scripted** pipeline. These syntaxes are divided into two parts: Steps, and Stages. **Steps** are the fundamental part of the pipeline as they tell the Jenkins server what to do. **Stages** are the major part of a pipeline. Stages logically group a couple of steps, which displayed on the pipeline's result screen.
+
+### JPA
+
+#### JPA vs Hibernate
+
+JPA: The Java Persistence API (JPA) is the Java standard for mapping Java objects to a relational database**.**
+
+Hibernate: Hibernate is a Java framework that simplifies the development of Java application to interact with the database. It is an open source, lightweight, ORM tool. Hibernate implements the specifications of JPA for data persistence.
+
+In short, JPA is the interface while Hibernate is the implementation.
+
+#### JSP and Directives and JSF
+
+Java Server Pages (***JSP***) is a server-side programming technology that enables the creation of dynamic, platform-independent method for building Web-based applications. ***JSP*** have access to the entire family of Java APIs, including the JDBC API to access enterprise databases.
+
+**Directives** are elements that relay messages to the **JSP** container and affect how it compiles the **JSP** page. The **directives** themselves do not appear in the XML output. There are three **directives**: include, page, and taglib.
+
+Java Server Faces (JSF) is a UI component based Java Web application framework. JSF is server based, e.g. the JSF UI components and their state are represented on the server with a defined life cycle of the UI components. JSF is part of the Java EE standard.A JSF application run in a standard web container, for example Tomcat.
+
+
+
+### SAML vs LDAP vs Ouath2
+
+**SAML** stands for Security Assertion Markup Language, it works by passing information about users, logins, and attributes between the identity provider and service providers. Each user logs in once to Single Sign On with the identify provider, and then the identify provider can pass SAML attributes to the service provider when the user attempts to access those services.
+
+**LDAP** stands for Lightweight Directory Access Protocol.  It is used to authenticate users stored in the IDP to on-prem applications or other Linux Server processes. User authentication is the process of validating a username and password combination with a directory server such MS Active Directory, OpenLDAP or OpenDJ. Directories are standard technology for storaging user, group and permission information and serving that to applications in the enterprise.
+
+**Ouath2** works by delegating user authentication to the service that hosts the user account and authorizing third-party applications to access the user account. OAuth 2 provides authorization flows for web and desktop applications, and mobile devices
+
+
+
+### SOAP
+
+#### SOAP vs Rest
+
+SOAP stands for Simple Object Access Protocol whereas REST stands for Representational State Transfer.
+
+SOAP is a protocol whereas REST is an architectural pattern.
+
+SOAP uses service interfaces to expose its functionality to client applications while REST uses Uniform Service locators to access to the components on the hardware device.
+
+SOAP needs more bandwidth for its usage whereas REST doesn’t need much bandwidth.
+
+SOAP only works with XML formats whereas REST work with plain text, XML, HTML and JSON.
+
+SOAP cannot make use of REST whereas REST can make use of SOAP.
+
+
+
+### Authentication vs Authorization
+
+Authentication: the process of determining whether or not an entity is who or what it declares itself to be
+
+Authorization: the process of giving an entity permission to do, use, or obtain something. Logically, authentication precedes authorization.
+
+### JWT
+
+**JWT** stands for JSON Web Token. It is an Internet standard for creating data with optional signature and/or optional encryption whose payload holds JSON that asserts some number of claims. The tokens are signed either using a private secret or a public/private key. For example, a server could generate a token that has the claim "logged in as admin" and provide that to a client. The client could then use that token to prove that it is logged in as admin. The tokens can be signed by one party's private key (usually the server's) so that party can subsequently verify the token is legitimate. If the other party, by some suitable and trustworthy means, is in possession of the corresponding public key, they too are able to verify the token's legitimacy.
+
+
+
+### Thymeleaf
+
+It is a HTML5/XHTML/XML template engine. It is a server-side Java template engine for both web (servlet-based) and non-web (offline) environments. It is perfect for modern-day HTML5 JVM web development. It provides full integration with Spring FrameWork. It applies a set of transformations to template files in order to display data or text produced by the application.
+
+
+
+### AWS
+
+#### EC2
+
+It is a virtual server in Amazon's Elastic Compute Cloud (**EC2**) for running applications on the Amazon Web Services (**AWS**) infrastructure. With **Amazon EC2**, you can set up and configure the operating system and applications that run on your **instance**.
+
+#### S3
+
+It is a public cloud storage resource available in **Amazon Web Services**' (**AWS**) Simple Storage Service (**S3**), an object storage offering. **Amazon S3 buckets**, which are similar to file folders, store objects, which consist of data and its descriptive metadata.
+
+
+
+### Design Pattern
+
+a **design pattern** is a general repeatable solution to a commonly occurring problem in software **design**. A **design pattern** isn't a finished **design** that can be transformed directly into code. It is a description or template for how to solve a problem that can be used in many different situations.
+
+#### Factory
+
+A Factory Pattern says that just define an interface or abstract class for creating an **object** but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.
+
+#### Singleton
+
+It is used to restrict the instantiation of a class and ensures that only one instance of the class exists in the JVM. In other words, a **singleton** class is a class that can have only one object (an instance of the class) at a time per JVM instance.
+
+#### Observer
+
+The observer **pattern** defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. The object which is being watched is called the subject. The objects which are watching the state changes are called observers or listeners.
+
+
+
+### Intermediate vs Terminal Operation                                                    
+
+ When you invoke an intermediate operation on a stream, the operation is not executed immediately. It is executed only when a terminal operation is invoked on that stream. In a way, an intermediate operation is memorized and is recalled as soon as a terminal operation is invoked.Terminal operations produces a non-stream, result such as primitive value, a collection or no value at all. Terminal operations are typically preceded by intermediate operations which return another Stream which allows operations to be connected in a form of a query.
+
+ 
+
+### CICD
+
+**What is CI?**
+
+The "CI" in CI/CD always refers to continuous integration, which is an automation process for developers. Successful CI means new code changes to an app are regularly built, tested, and merged to a shared repository. It’s a solution to the problem of having too many branches of an app in development at once that might conflict with each other.
+
+**What is CD?**
+
+Continuous deployment (the other possible "CD") can refer to automatically releasing a developer’s changes from the repository to production, where it is usable by customers. It addresses the problem of overloading operations teams with manual processes that slow down app delivery. It builds on the benefits of continuous delivery by automating the next stage in the pipeline.
+
+
+
+### Spring AOP
+
+Spring AOP enables Aspect-Oriented Programming in spring applications. In AOP, aspects enable the modularization of concerns such as transaction management, logging or security that cut across multiple types and objects (often termed crosscutting concerns).
+
+AOP provides the way to dynamically add the cross-cutting concern before, after or around the actual logic using simple pluggable configurations. It makes easy to maintain code in the present and future as well. You can add/remove concerns without recompiling complete source code simply by changing configuration files (if you are applying aspects suing XML configuration).
+
+
+
+### MERN Stack
+
+**MERN** stack is a web development framework. It consists of MongoDB, ExpressJS, ReactJS, and NodeJS as its working components. Here are the details of what each of these components is used for in developing a web application when using MERN stack:
+
+**MongoDB**: A document-oriented, No-SQL database used to store the application data.
+
+**NodeJS**: The JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
+
+**ExpressJS**: A framework layered on top of NodeJS, used to build the backend of a site using NodeJS functions and structures. Since NodeJS was not developed to make websites but rather run JavaScript on a machine, ExpressJS was developed.
+
+**ReactJS**: A library created by Facebook. It is used to build UI components that create the user interface of the single page web application.
+
+
+
+### Topic vs Queue
+
+In JMS, a Topic implements *publish and subscribe* semantics. When you publish a message, it goes to all the subscribers who are interested - so zero to many subscribers will receive a copy of the message. Only subscribers who had an active subscription at the time the broker receives the message will get a copy of the message. JMS Queue implements *load balancer* semantics. A single message will be received by exactly one consumer. If there are no consumers available at the time the message is sent it will be kept until a consumer is available that can process the message. If a consumer receives a message and does not acknowledge it before closing, then the message will be redelivered to another consumer. A queue can have many consumers with messages *load balanced* across the available consumers.
+
+ 
+
+### Session Factory vs Session
+
+Session Factory is a factory class for Session objects. It is available for the whole application while a Session is only available for particular transaction. Session is short-lived while Session Factory objects are long-lived. Session Factory provides a second level cache and Session provides a first level cache.
+
+
+
+### Log4j
+
+It is a tool to help the programmer output log statements to a variety of output targets. In case of problems with an application, it is helpful to enable logging so that the problem can be located. With log4j it is possible to enable logging at runtime without modifying the application binary.
+
+
+
+### Comparable vs Comparetor
+
+**Comparable**: an interface which defines a way to compare an object with other objects of the same type. It helps to sort the objects that have self-tendency to sort themselves, the objects must know how to order themselves. Eg: Roll number, age, salary. This interface is found in the Java.lang package and it contains only one method which is compareTo(). Comparable is not capable of sorting the object on its own, but the interface defines a method compareTo() which is responsible for sorting.
+
+The compareTo() method returns an int value. The value can be either positive, negative, or zero.
+
+**Comparator**: an interface is used to order the objects of a specific class. This interface is found in the java.util package. It contains two methods: compare(Object obj1,Object obj2), equals(Object element)
+
+The first method, compare(Object obj1,Object obj2), compares its two input arguments and showcases the output. It returns a negative integer, zero, or a positive integer to state whether the first argument is less than, equal to, or greater than the second.
+
+The second method, equals(Object element), requires an Object as a parameter and shows if the input object is equal to the comparator. The method will return true, only if the mentioned object is also a Comparator. The order remains the same as that of the Comparator.
+
+
+
+### ArrayList vs Vector
+
+Vector is similar with ArrayList, but it is synchronized. ArrayList is a better choice if your program is thread-safe. Vector and ArrayList require space as more elements are added. Vector each time doubles its array size, while ArrayList grow 50% of its size each time.
+
+
+
+### 
